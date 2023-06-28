@@ -13,6 +13,7 @@ import { FacebookIcon, TwitterIcon, WhatsappIcon } from "react-share";
 const SingleProduct = () => {
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState(null);
+  const [comments, setComments] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,6 +22,10 @@ const SingleProduct = () => {
       const data = await res.json();
       console.log(data);
       setProductDetails(data);
+      // fetch reviews of the products
+      const commentsRes = await fetch(`https://dummyjson.com/comments/${id}`);
+      const commentsData = await commentsRes.json();
+      setComments(commentsData);
       setLoading(false);
     };
     fetchData();
@@ -87,7 +92,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 max-w-2xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 max-w-2xl mb-12">
         {productDetails.images.map((imageGallary) => (
           <div className="overflow-hidden shadow-md rounded-md">
             <img
@@ -97,6 +102,31 @@ const SingleProduct = () => {
             />
           </div>
         ))}
+      </div>
+      {/* Product reviews */}
+      <div className="rounded-md">
+        <h4 className="text-xl text-gray-500 pl-4 mb-4">Product Reviews</h4>
+        <div className="flex justify-start items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-20 h-20 text-gray-400"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+
+          <div className="">
+            <p className="text-xl">{comments.user.username}</p>
+            <p>{comments.body}</p>
+          </div>
+        </div>
       </div>
     </Card>
   );
