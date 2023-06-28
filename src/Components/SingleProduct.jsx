@@ -29,6 +29,10 @@ const SingleProduct = () => {
   if (loading) {
     return <Loader />;
   }
+  const domainUrl = window.location.href;
+  const titleUrl = productDetails.title;
+  const descriptionUrl = productDetails.description;
+  const imageUrl = productDetails.thumbnail;
 
   return (
     <Card>
@@ -41,7 +45,7 @@ const SingleProduct = () => {
       <Link to="/" className="p-4 text-2xl font-semibold text-indigo-500">
         Go Back
       </Link>
-      <div className="shadow-md rounded-md mb-3 flex p-4">
+      <div className="shadow-md rounded-md mb-3 flex flex-col md:flex-row p-4">
         <div className="overflow-hidden">
           <img
             src={productDetails.thumbnail}
@@ -51,34 +55,33 @@ const SingleProduct = () => {
         </div>
         <div className="space-y-3 p-4">
           <p className="text-2xl font-semibold">{productDetails.title}</p>
-          <p className="text-2xl font-semibold">{productDetails.category}</p>
+          <p className="text-md font-semibold border-2 border-indigo-600 inline-block p-2 rounded-3xl">
+            {productDetails.category}
+          </p>
           <p className="text-2xl font-semibold">{productDetails.price}</p>
           <p className="text-md font-semibold">{productDetails.description}</p>
-          <p className="text-xl font-bold text-gray-500">
+          <p className="text-sm font-bold text-gray-500">
             Share on Social Media
           </p>
           <div className="flex justify-start items-center gap-2">
             <FacebookShareButton
-              url={window.location.href}
-              quote={productDetails.title}
-              hashtag={productDetails.title}
-              description={productDetails.description}
-              media={productDetails.thumbnail}
+              url={domainUrl}
+              quote={titleUrl}
+              hashtag={titleUrl}
+              description={descriptionUrl}
+              media={imageUrl}
             >
               <FacebookIcon size={32} round={true} />
             </FacebookShareButton>
             <TwitterShareButton
-              url={window.location.href}
-              title={productDetails.title}
+              url={domainUrl}
+              title={titleUrl}
               via="your-twitter-handle"
-              hashtags={[productDetails.title]}
+              hashtags={[titleUrl]}
             >
               <TwitterIcon size={32} round={true} />
             </TwitterShareButton>
-            <WhatsappShareButton
-              url={window.location.href}
-              title={productDetails.title}
-            >
+            <WhatsappShareButton url={window.location.href} title={titleUrl}>
               <WhatsappIcon size={32} round={true} />
             </WhatsappShareButton>
           </div>

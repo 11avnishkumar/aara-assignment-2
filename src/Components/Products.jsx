@@ -36,6 +36,9 @@ const Products = () => {
               </div>
               <div className="space-y-3 p-4">
                 <p className="text-2xl font-semibold">{product.title}</p>
+                <p className="text-md font-semibold border-2 border-indigo-600 inline-block p-2 rounded-3xl">
+                  {product.category}
+                </p>
                 <p className="text-2xl font-semibold">{product.price}</p>
                 <p className="text-md font-semibold">{product.description}</p>
               </div>
