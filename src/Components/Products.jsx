@@ -23,7 +23,6 @@ const Products = () => {
   }
   return (
     <Card>
-      <h1 className="mb-4 text-4xl text-gray-500">All Posts</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
           <Link to={`/product_details/${product.id}`}>

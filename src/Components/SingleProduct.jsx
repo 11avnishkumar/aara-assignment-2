@@ -6,17 +6,10 @@ import Card from "./Card";
 import { Helmet } from "react-helmet";
 import {
   FacebookShareButton,
-  LinkedinShareButton,
   WhatsappShareButton,
   TwitterShareButton,
 } from "react-share";
-import {
-  FacebookIcon,
-  LinkedinIcon,
-  RedditIcon,
-  TwitterIcon,
-  WhatsappIcon,
-} from "react-share";
+import { FacebookIcon, TwitterIcon, WhatsappIcon } from "react-share";
 const SingleProduct = () => {
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState(null);
@@ -44,8 +37,6 @@ const SingleProduct = () => {
         <meta property="og:title" content={productDetails.title} />
         <meta property="og:description" content={productDetails.description} />
         <meta property="og:image" content={productDetails.thumbnail} />
-        <meta property="og:url" content={window.location.href} />
-        <meta property="og:type" content="product" />
       </Helmet>
       <Link to="/" className="p-4 text-2xl font-semibold text-indigo-500">
         Go Back
@@ -63,7 +54,9 @@ const SingleProduct = () => {
           <p className="text-2xl font-semibold">{productDetails.category}</p>
           <p className="text-2xl font-semibold">{productDetails.price}</p>
           <p className="text-md font-semibold">{productDetails.description}</p>
-          <p className="text-3xl font-bold">Share on Social Media</p>
+          <p className="text-xl font-bold text-gray-500">
+            Share on Social Media
+          </p>
           <div className="flex justify-start items-center gap-2">
             <FacebookShareButton
               url={window.location.href}
