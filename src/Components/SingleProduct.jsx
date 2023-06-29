@@ -42,15 +42,27 @@ const SingleProduct = () => {
   return (
     <Card>
       <Helmet>
-        <title>{titleUrl}</title>
-        <meta property="og:title" content={titleUrl} />
+        <title>Meta Tags — Preview, Edit and Generate</title>
+        <meta name="title" content={titleUrl} />
         <meta name="description" content={descriptionUrl} />
-        <meta property="og:description" content={descriptionUrl} />
+
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={domainUrl} />
+        <meta
+          property="og:url"
+          content={`https://aara-assignment-2.vercel.app/product_details/${id}`}
+        />
+        <meta property="og:title" content={titleUrl} />
+        <meta property="og:description" content={descriptionUrl} />
         <meta property="og:image" content={imageUrl} />
-        <meta name="twitter:card" content={descriptionUrl} />
-        <meta name="twitter:image:alt" content={titleUrl} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`https://aara-assignment-2.vercel.app/product_details/${id}`}
+        />
+        <meta property="twitter:title" content={titleUrl} />
+        <meta property="twitter:description" content={descriptionUrl} />
+        <meta property="twitter:image" content={imageUrl} />
       </Helmet>
       <Link to="/" className="p-4 text-2xl font-semibold text-indigo-500">
         Go Back
