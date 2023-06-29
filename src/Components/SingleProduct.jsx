@@ -42,10 +42,15 @@ const SingleProduct = () => {
   return (
     <Card>
       <Helmet>
-        <title>{productDetails.title}</title>
-        <meta property="og:title" content={productDetails.title} />
-        <meta property="og:description" content={productDetails.description} />
-        <meta property="og:image" content={productDetails.thumbnail} />
+        <title>{titleUrl}</title>
+        <meta property="og:title" content={titleUrl} />
+        <meta name="description" content={descriptionUrl} />
+        <meta property="og:description" content={descriptionUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={domainUrl} />
+        <meta property="og:image" content={imageUrl} />
+        <meta name="twitter:card" content={descriptionUrl} />
+        <meta name="twitter:image:alt" content={titleUrl} />
       </Helmet>
       <Link to="/" className="p-4 text-2xl font-semibold text-indigo-500">
         Go Back
