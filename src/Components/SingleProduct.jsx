@@ -42,7 +42,7 @@ const SingleProduct = () => {
   return (
     <Card>
       <Helmet>
-        <title>Meta Tags — Preview, Edit and Generate</title>
+        <title>{titleUrl}</title>
         <meta name="title" content={titleUrl} />
         <meta name="description" content={descriptionUrl} />
 
