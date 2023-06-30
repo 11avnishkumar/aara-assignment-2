@@ -98,8 +98,8 @@ const SingleProduct = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 max-w-2xl mb-12">
-          {productDetails.images.map((imageGallary) => (
-            <div className="overflow-hidden shadow-md rounded-md">
+          {productDetails.images.map((imageGallary, index) => (
+            <div className="overflow-hidden shadow-md rounded-md" key={index}>
               <img
                 src={imageGallary}
                 alt={imageGallary}

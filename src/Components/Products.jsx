@@ -25,7 +25,7 @@ const Products = () => {
     <Card>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {products.map((product) => (
-          <Link to={`/product_details/${product.id}`}>
+          <Link to={`/product_details/${product.id}`} key={product.id}>
             <div className="shadow-md rounded-md min-h-[450px]">
               <div className="overflow-hidden h-60">
                 <img
