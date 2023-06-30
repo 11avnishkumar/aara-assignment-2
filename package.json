@@ -15,7 +15,11 @@
     "react-helmet": "^6.1.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.14.0",
-    "react-share": "^4.4.1"
+    "react-share": "^4.4.1",
+    "react-snap": "^1.23.0",
+    "vite-plugin-react": "^4.0.1",
+    "vite-plugin-ssr": "^0.4.132",
+    "vite-ssr-react": "^0.19.1-no-ssr3"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

@@ -11,7 +11,11 @@ const MetaDecorator = ({
     <Helmet>
       <meta charset="UTF-8" />
       <meta name="title" content={titleUrl} />
-      <meta name="description" content={descriptionUrl} />
+      <meta
+        name="description"
+        content={descriptionUrl}
+        data-react-helmet="true"
+      />
       <meta property="og:title" content={titleUrl} />
       <meta property="og:description" content={descriptionUrl} />
       <meta property="og:image" content={imageUrl} />
